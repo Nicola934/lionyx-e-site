@@ -12,6 +12,7 @@ background:#0f172a;
 color:white;
 margin:0;
 text-align:center;
+line-height:1.6;
 }
 
 header{
@@ -26,19 +27,35 @@ margin-bottom:10px;
 .tagline{
 color:#94a3b8;
 font-size:20px;
+max-width:700px;
+margin:auto;
 }
 
 .section{
-max-width:900px;
+max-width:950px;
 margin:auto;
 padding:60px 20px;
 }
 
 .card{
 background:#1e293b;
-padding:30px;
-margin:20px 0;
+padding:35px;
+margin:25px 0;
 border-radius:10px;
+}
+
+.card h2{
+margin-top:0;
+}
+
+.diagram{
+background:#0f172a;
+border:1px solid #334155;
+border-radius:8px;
+padding:20px;
+margin-top:15px;
+font-family:monospace;
+color:#38bdf8;
 }
 
 footer{
@@ -51,64 +68,175 @@ color:#38bdf8;
 text-decoration:none;
 }
 
+.cta{
+margin-top:25px;
+font-size:18px;
+}
+
 </style>
 </head>
 
 <body>
 
 <header>
+
 <h1>Lionyx-E</h1>
+
 <div class="tagline">
-Automation Systems for Operations, Finance and Property Management
+Operational Automation Systems for Property, Finance and Operations Teams
 </div>
+
+<p class="tagline">
+Lionyx-E builds structured automation pipelines that transform spreadsheet-driven workflows into reliable Python-powered operational systems.
+</p>
+
 </header>
+
 
 <div class="section">
 
 <div class="card">
+
 <h2>What We Do</h2>
 
 <p>
-Lionyx-E designs automation systems that remove manual operational work from businesses.
+Many organizations run critical operations through complex Excel spreadsheets. As data grows, these workflows become slow, error-prone and difficult to manage.
 </p>
 
 <p>
-We build structured systems combining Excel workflows, Python automation engines, and operational dashboards.
+Lionyx-E designs automation systems that convert those workflows into structured pipelines combining Excel interfaces, Python automation engines and operational dashboards.
 </p>
 
 </div>
 
-<div class="card">
-<h2>Automation Systems</h2>
 
-<p><strong>Tenant Arrears Automation Engine</strong><br>
-Automated ledger analysis, FIFO arrears allocation and automated follow-up systems.
+<div class="card">
+
+<h2>Automation System: Tenant Arrears Engine</h2>
+
+<p>
+A structured arrears analysis system designed for property management portfolios.
 </p>
 
-<p><strong>Maintenance Request Tracking System</strong><br>
-Operational pipeline converting request intake into automated maintenance dashboards.
+<p>
+The system processes tenant ledgers, applies FIFO payment allocation logic and automatically calculates accurate arrears aging for operational follow-up.
+</p>
+
+<div class="diagram">
+
+Excel Ledger  
+&nbsp;&nbsp;&nbsp;&nbsp;↓  
+Python Arrears Engine  
+&nbsp;&nbsp;&nbsp;&nbsp;↓  
+FIFO Allocation Logic  
+&nbsp;&nbsp;&nbsp;&nbsp;↓  
+Arrears Snapshot + Reminder Output  
+&nbsp;&nbsp;&nbsp;&nbsp;↓  
+Operational Dashboard
+
+</div>
+
+<p>
+Project repository:<br>
+<a href="https://github.com/Nicola934/Sample1_Tenant_Arrears_Tracker" target="_blank">
+Tenant Arrears Automation Engine
+</a>
 </p>
 
 </div>
 
+
 <div class="card">
+
+<h2>Automation System: Maintenance Request Tracker</h2>
+
+<p>
+A workflow automation system that converts maintenance request intake into structured operational tracking data.
+</p>
+
+<p>
+The system aggregates maintenance requests and produces automated weekly operational summaries for property managers.
+</p>
+
+<div class="diagram">
+
+Request Intake (Excel)  
+&nbsp;&nbsp;&nbsp;&nbsp;↓  
+Python Processing Engine  
+&nbsp;&nbsp;&nbsp;&nbsp;↓  
+Maintenance Tracking Dataset  
+&nbsp;&nbsp;&nbsp;&nbsp;↓  
+Weekly Summary Output  
+&nbsp;&nbsp;&nbsp;&nbsp;↓  
+Operations Dashboard
+
+</div>
+
+<p>
+Project repository:<br>
+<a href="https://github.com/Nicola934" target="_blank">
+View Automation Projects on GitHub
+</a>
+</p>
+
+</div>
+
+
+<div class="card">
+
+<h2>System Architecture</h2>
+
+<p>
+Lionyx-E automation systems typically follow a simple but reliable architecture:
+</p>
+
+<div class="diagram">
+
+Operational Data (Excel)  
+&nbsp;&nbsp;&nbsp;&nbsp;↓  
+Validation Layer  
+&nbsp;&nbsp;&nbsp;&nbsp;↓  
+Python Processing Engine  
+&nbsp;&nbsp;&nbsp;&nbsp;↓  
+Automated Outputs  
+&nbsp;&nbsp;&nbsp;&nbsp;↓  
+Operational Dashboards
+
+</div>
+
+<p>
+This architecture allows organizations to keep familiar spreadsheet interfaces while gaining the reliability and scalability of automated processing systems.
+</p>
+
+</div>
+
+
+<div class="card">
+
 <h2>Contact</h2>
 
 <p>
-Email: <a href="mailto:info@lionyx-e.co.za">info@lionyx-e.co.za</a>
+Organizations looking to automate operational workflows can contact Lionyx-E directly.
 </p>
 
 <p>
-Business: <a href="mailto:nicola@lionyx-e.co.za">nicola@lionyx-e.co.za</a>
+Email:<br>
+<a href="mailto:info@lionyx-e.co.za">info@lionyx-e.co.za</a>
 </p>
 
 <p>
-Domain: lionyx-e.co.za
+Business Email:<br>
+<a href="mailto:nicola@lionyx-e.co.za">nicola@lionyx-e.co.za</a>
+</p>
+
+<p class="cta">
+Lionyx-E Automation Systems
 </p>
 
 </div>
 
 </div>
+
 
 <footer>
 © Lionyx-E Automation Systems
