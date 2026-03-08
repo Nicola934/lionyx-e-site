@@ -9,135 +9,169 @@
     content="Case study for the Tenant Arrears Automation Engine by Lionyx-E Automation Systems."
   />
   <link rel="icon" type="image/png" href="../assets/favicon.png" />
+
   <style>
+    :root{
+      --onyx:#121212;
+      --gold:#D6A436;
+      --steel:#888C94;
+      --white:#F0F0F0;
+
+      --panel:#121212;
+      --card:#121212;
+      --divider:#888C94;
+    }
+
+    *{
+      box-sizing:border-box;
+    }
+
     body{
-      font-family: Arial, sans-serif;
       margin:0;
-      background:#0f172a;
-      color:white;
+      font-family:Arial, sans-serif;
+      background:var(--onyx);
+      color:var(--white);
       line-height:1.65;
     }
 
     .container{
       max-width:1000px;
       margin:auto;
-      padding:20px;
+      padding:0 20px;
     }
 
     nav{
-      background:#020617;
-      border-bottom:1px solid #1e293b;
+      background:var(--onyx);
+      border-bottom:1px solid var(--steel);
     }
 
     .nav-inner{
       display:flex;
       justify-content:space-between;
       align-items:center;
-      padding:15px 0;
-      gap:16px;
+      gap:20px;
+      flex-wrap:wrap;
+      padding:16px 0;
+    }
+
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      color:var(--gold);
+      text-decoration:none;
+      font-weight:bold;
+      letter-spacing:1px;
+    }
+
+    .brand img{
+      height:40px;
+    }
+
+    .nav-links{
+      display:flex;
+      gap:20px;
       flex-wrap:wrap;
     }
 
-    .logo{
-      display:flex;
-      align-items:center;
-      gap:10px;
-      font-weight:bold;
-    }
-
-    .logo img{
-      height:34px;
-    }
-
-    nav a{
-      color:#94a3b8;
+    .nav-links a{
+      color:var(--steel);
       text-decoration:none;
-      margin-left:18px;
     }
 
-    nav a:hover{
-      color:white;
+    .nav-links a:hover{
+      color:var(--gold);
     }
 
     .hero{
-      padding:70px 20px 40px;
       text-align:center;
+      padding:80px 20px 40px;
     }
 
     .hero h1{
-      font-size:42px;
-      margin-bottom:12px;
+      margin:0 0 14px;
+      font-size:46px;
+      color:var(--gold);
+      letter-spacing:1px;
     }
 
     .hero p{
-      color:#94a3b8;
       max-width:760px;
       margin:auto;
+      color:var(--steel);
     }
 
     .section{
-      padding:28px 20px;
+      padding:28px 0;
     }
 
     .card{
-      background:#1e293b;
+      background:var(--card);
+      border:1px solid var(--steel);
+      border-radius:10px;
       padding:30px;
-      border-radius:12px;
       margin-bottom:22px;
     }
 
-    .card h2, .card h3{
+    .card h2,
+    .card h3{
       margin-top:0;
-    }
-
-    .image{
-      width:100%;
-      border-radius:10px;
-      border:1px solid #334155;
-      margin-top:18px;
-    }
-
-    .diagram{
-      background:#020617;
-      border:1px solid #334155;
-      padding:20px;
-      margin-top:20px;
-      font-family:monospace;
-      color:#38bdf8;
-      border-radius:10px;
-      white-space:pre-line;
+      color:var(--gold);
     }
 
     .grid{
       display:grid;
       grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-      gap:20px;
+      gap:22px;
+    }
+
+    .image{
+      width:100%;
+      margin-top:18px;
+      border:1px solid var(--steel);
+      border-radius:10px;
+      display:block;
+    }
+
+    .diagram{
+      background:var(--onyx);
+      border:1px solid var(--steel);
+      border-radius:10px;
+      padding:20px;
+      margin-top:20px;
+      font-family:Consolas, monospace;
+      color:var(--gold);
+      white-space:pre-line;
     }
 
     .button{
       display:inline-block;
       padding:12px 18px;
-      background:#38bdf8;
-      color:#020617;
+      background:var(--gold);
+      color:var(--onyx);
       text-decoration:none;
-      border-radius:8px;
+      border-radius:6px;
       font-weight:bold;
+      margin-right:12px;
+      margin-top:12px;
     }
 
     .button.secondary{
       background:transparent;
-      color:#38bdf8;
-      border:1px solid #38bdf8;
+      color:var(--gold);
+      border:1px solid var(--gold);
+    }
+
+    a{
+      color:var(--gold);
     }
 
     footer{
       text-align:center;
-      padding:40px;
-      color:#64748b;
-    }
-
-    a{
-      color:#38bdf8;
+      padding:50px 20px;
+      color:var(--steel);
+      border-top:1px solid var(--steel);
+      margin-top:40px;
     }
   </style>
 </head>
@@ -145,12 +179,12 @@
 
   <nav>
     <div class="container nav-inner">
-      <div class="logo">
+      <a href="../index.html" class="brand">
         <img src="../assets/logo.png" alt="Lionyx-E logo">
-        <span>Lionyx-E</span>
-      </div>
+        <span>LIONYX-E</span>
+      </a>
 
-      <div>
+      <div class="nav-links">
         <a href="../index.html">Home</a>
         <a href="../index.html#services">Services</a>
         <a href="../index.html#projects">Projects</a>
@@ -160,35 +194,38 @@
   </nav>
 
   <header class="hero">
-    <h1>Tenant Arrears Automation Engine</h1>
-    <p>
-      A property operations automation system designed to convert spreadsheet-based tenant ledgers
-      into reliable arrears intelligence, reminder outputs, and operational dashboard visibility.
-    </p>
-  </header>
-
-  <section class="section container">
-
-    <div class="card">
-      <h2>Business Problem</h2>
+    <div class="container">
+      <h1>Tenant Arrears Automation Engine</h1>
       <p>
-        Manual arrears tracking in property portfolios often breaks down when partial payments,
-        mixed charge histories, and inconsistent follow-up processes are involved.
-      </p>
-      <p>
-        Teams end up with unreliable aging buckets, poor visibility into outstanding balances,
-        and reminder workflows based on distorted information.
+        A property operations automation system designed to convert spreadsheet-based tenant ledgers
+        into reliable arrears intelligence, reminder outputs and operational dashboard visibility.
       </p>
     </div>
+  </header>
 
-    <div class="card">
-      <h2>System Built</h2>
-      <p>
-        Lionyx-E designed a structured arrears engine that accepts Excel-based tenant and ledger inputs,
-        applies FIFO allocation logic, calculates aging positions, and produces operational outputs for follow-up.
-      </p>
+  <section class="section">
+    <div class="container">
 
-      <div class="diagram">Tenant & Ledger Inputs (Excel)
+      <div class="card">
+        <h2>Business Problem</h2>
+        <p>
+          Manual arrears tracking in property portfolios often breaks down when partial payments,
+          mixed charge histories and inconsistent follow-up processes are involved.
+        </p>
+        <p>
+          Teams end up with unreliable aging buckets, poor visibility into outstanding balances
+          and reminder workflows based on distorted information.
+        </p>
+      </div>
+
+      <div class="card">
+        <h2>System Built</h2>
+        <p>
+          Lionyx-E designed a structured arrears engine that accepts Excel-based tenant and ledger inputs,
+          applies FIFO allocation logic, calculates aging positions and produces operational outputs for follow-up.
+        </p>
+
+        <div class="diagram">Tenant & Ledger Inputs (Excel)
 ↓
 Validation Layer
 ↓
@@ -200,73 +237,69 @@ Arrears Snapshot Output
 ↓
 Reminder Output + Dashboard</div>
 
-      <img class="image" src="../assets/arrears-dashboard.png" alt="Tenant arrears dashboard screenshot">
-    </div>
+        <img class="image" src="../assets/arrears-dashboard.png" alt="Tenant arrears dashboard screenshot">
+      </div>
 
-    <div class="grid">
-      <div class="card">
-        <h3>Core Logic</h3>
-        <p>
-          The engine uses FIFO allocation to apply payments to the oldest outstanding charges first,
-          which produces more reliable arrears aging than loose spreadsheet methods.
-        </p>
+      <div class="grid">
+        <div class="card">
+          <h3>Core Logic</h3>
+          <p>
+            The engine uses FIFO allocation to apply payments to the oldest outstanding charges first,
+            producing more reliable arrears aging than loose spreadsheet methods.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>Operational Outputs</h3>
+          <p>
+            The system generates snapshot-style outputs that can feed dashboards, follow-up workflows
+            and management reporting with less manual reconciliation.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>Business Outcome</h3>
+          <p>
+            The result is cleaner arrears visibility, faster follow-up and a more reliable operational
+            picture of portfolio health.
+          </p>
+        </div>
       </div>
 
       <div class="card">
-        <h3>Operational Outputs</h3>
-        <p>
-          The system generates snapshot-style outputs that can feed dashboards, follow-up workflows,
-          and management reporting with less manual reconciliation.
-        </p>
+        <h2>Technology Structure</h2>
+        <p>This system was designed as an Excel + Python operational architecture:</p>
+        <ul>
+          <li>Excel for familiar operational input</li>
+          <li>Python for processing logic and allocation rules</li>
+          <li>CSV / report outputs for downstream dashboard use</li>
+          <li>A structure suitable for recurring operational workflows</li>
+        </ul>
       </div>
 
       <div class="card">
-        <h3>Business Outcome</h3>
+        <h2>Project Links</h2>
         <p>
-          The result is cleaner arrears visibility, faster follow-up, and a more reliable operational
-          picture of portfolio health.
+          GitHub Repository:<br>
+          <a href="https://github.com/Nicola934/Sample1_Tenant_Arrears_Tracker" target="_blank" rel="noopener noreferrer">
+            Sample1_Tenant_Arrears_Tracker
+          </a>
         </p>
-      </div>
-    </div>
 
-    <div class="card">
-      <h2>Technology Structure</h2>
-      <p>
-        This system was designed as an Excel + Python operational architecture:
-      </p>
+        <p>
+          This project reflects Lionyx-E’s approach to building operational systems that are structured,
+          reliable and designed for real workflow use.
+        </p>
 
-      <ul>
-        <li>Excel for familiar operational input</li>
-        <li>Python for processing logic and allocation rules</li>
-        <li>CSV / report outputs for downstream dashboard use</li>
-        <li>A structure suitable for recurring operational workflows</li>
-      </ul>
-    </div>
-
-    <div class="card">
-      <h2>Project Links</h2>
-      <p>
-        GitHub Repository:<br>
-        <a href="https://github.com/Nicola934/Sample1_Tenant_Arrears_Tracker" target="_blank" rel="noopener noreferrer">
-          Sample1_Tenant_Arrears_Tracker
-        </a>
-      </p>
-
-      <p>
-        This project reflects Lionyx-E’s approach to building operational systems that are structured,
-        reliable, and designed for actual workflow use.
-      </p>
-
-      <p style="margin-top:20px;">
         <a class="button" href="mailto:info@lionyx-e.co.za">Discuss a Similar Workflow</a>
         <a class="button secondary" href="../index.html">Back to Homepage</a>
-      </p>
-    </div>
+      </div>
 
+    </div>
   </section>
 
   <footer>
-    Lionyx-E Automation Systems<br>
+    LIONYX-E AUTOMATION SYSTEMS<br>
     Registered South African Business
   </footer>
 

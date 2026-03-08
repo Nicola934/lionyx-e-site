@@ -1,304 +1,399 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lionyx-E Automation Systems</title>
+  <meta
+    name="description"
+    content="Lionyx-E builds operational automation systems for finance, operations and property management teams."
+  />
+  <link rel="icon" type="image/png" href="assets/favicon.png" />
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    :root{
+      --onyx:#121212;
+      --gold:#D6A436;
+      --steel:#888C94;
+      --white:#F0F0F0;
 
-<title>Lionyx-E Automation Systems</title>
+      --panel:#121212;
+      --panel-2:#121212;
+      --card:#121212;
+      --divider:#888C94;
+    }
 
-<meta name="description"
-content="Lionyx-E builds Excel + Python automation systems for finance, operations and property management teams.">
+    *{
+      box-sizing:border-box;
+    }
 
-<link rel="icon" type="image/png" href="assets/favicon.png">
+    html{
+      scroll-behavior:smooth;
+    }
 
-<style>
+    body{
+      margin:0;
+      font-family:Arial, sans-serif;
+      background:var(--onyx);
+      color:var(--white);
+      line-height:1.6;
+    }
 
-body{
-font-family: Arial, sans-serif;
-margin:0;
-background:#0f172a;
-color:white;
-line-height:1.6;
-}
+    .container{
+      max-width:1100px;
+      margin:auto;
+      padding:0 20px;
+    }
 
-.container{
-max-width:1100px;
-margin:auto;
-padding:20px;
-}
+    nav{
+      background:var(--onyx);
+      border-bottom:1px solid var(--steel);
+      position:sticky;
+      top:0;
+      z-index:100;
+    }
 
-nav{
-background:#020617;
-border-bottom:1px solid #1e293b;
-}
+    .nav-inner{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:20px;
+      padding:16px 0;
+      flex-wrap:wrap;
+    }
 
-.nav-inner{
-display:flex;
-justify-content:space-between;
-align-items:center;
-padding:15px 0;
-}
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      font-weight:bold;
+      letter-spacing:1px;
+      color:var(--gold);
+      text-decoration:none;
+    }
 
-.logo{
-display:flex;
-align-items:center;
-gap:10px;
-font-weight:bold;
-}
+    .brand img{
+      height:42px;
+      width:auto;
+      display:block;
+    }
 
-.logo img{
-height:34px;
-}
+    .nav-links{
+      display:flex;
+      gap:20px;
+      flex-wrap:wrap;
+    }
 
-nav a{
-color:#94a3b8;
-margin-left:20px;
-text-decoration:none;
-}
+    .nav-links a{
+      color:var(--steel);
+      text-decoration:none;
+      font-size:0.95rem;
+    }
 
-nav a:hover{
-color:white;
-}
+    .nav-links a:hover{
+      color:var(--gold);
+    }
 
-.hero{
-text-align:center;
-padding:80px 20px;
-}
+    .hero{
+      text-align:center;
+      padding:100px 20px 80px;
+    }
 
-.hero h1{
-font-size:48px;
-margin-bottom:15px;
-}
+    .hero-logo{
+      width:170px;
+      max-width:100%;
+      margin:0 auto 24px;
+      display:block;
+    }
 
-.hero p{
-color:#94a3b8;
-max-width:700px;
-margin:auto;
-}
+    .hero h1{
+      margin:0 0 12px;
+      font-size:56px;
+      letter-spacing:2px;
+      color:var(--gold);
+    }
 
-.button{
-display:inline-block;
-margin-top:25px;
-padding:14px 22px;
-background:#38bdf8;
-color:#020617;
-border-radius:8px;
-font-weight:bold;
-text-decoration:none;
-}
+    .hero .tagline{
+      margin:0 auto 12px;
+      max-width:760px;
+      color:var(--steel);
+      font-size:1.25rem;
+      letter-spacing:1px;
+    }
 
-.section{
-padding:60px 20px;
-}
+    .hero .subtext{
+      margin:0 auto;
+      max-width:780px;
+      color:var(--white);
+      font-size:1rem;
+    }
 
-.section-title{
-text-align:center;
-margin-bottom:30px;
-}
+    .button{
+      display:inline-block;
+      margin-top:32px;
+      padding:14px 26px;
+      background:var(--gold);
+      color:var(--onyx);
+      border-radius:6px;
+      font-weight:bold;
+      text-decoration:none;
+    }
 
-.grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-gap:20px;
-}
+    .button:hover{
+      opacity:0.92;
+    }
 
-.card{
-background:#1e293b;
-padding:30px;
-border-radius:12px;
-}
+    .trust-strip{
+      background:var(--onyx);
+      border-top:1px solid var(--steel);
+      border-bottom:1px solid var(--steel);
+      padding:20px;
+      text-align:center;
+      color:var(--steel);
+      font-size:0.95rem;
+    }
 
-.card h3{
-margin-top:0;
-}
+    .section{
+      padding:80px 0;
+    }
 
-.project-image{
-margin-top:20px;
-border-radius:10px;
-width:100%;
-border:1px solid #334155;
-}
+    .section-title{
+      text-align:center;
+      color:var(--gold);
+      letter-spacing:1px;
+      margin:0 0 36px;
+      font-size:2rem;
+    }
 
-.diagram{
-background:#020617;
-border:1px solid #334155;
-padding:20px;
-margin-top:20px;
-font-family:monospace;
-color:#38bdf8;
-border-radius:10px;
-white-space:pre-line;
-}
+    .intro-card,
+    .card{
+      background:var(--card);
+      border:1px solid var(--steel);
+      border-radius:10px;
+      padding:30px;
+    }
 
-.trust-strip{
-background:#020617;
-border-top:1px solid #1e293b;
-border-bottom:1px solid #1e293b;
-padding:20px;
-text-align:center;
-color:#94a3b8;
-}
+    .intro-card{
+      margin-top:0;
+    }
 
-footer{
-text-align:center;
-padding:40px;
-color:#64748b;
-}
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+      gap:24px;
+    }
 
-a{
-color:#38bdf8;
-}
+    .card h3{
+      margin-top:0;
+      color:var(--gold);
+    }
 
-</style>
+    .card p,
+    .intro-card p{
+      color:var(--white);
+    }
+
+    .muted{
+      color:var(--steel);
+    }
+
+    .project-image{
+      margin-top:20px;
+      width:100%;
+      border:1px solid var(--steel);
+      border-radius:10px;
+      display:block;
+    }
+
+    .diagram{
+      background:var(--onyx);
+      border:1px solid var(--steel);
+      border-radius:10px;
+      padding:20px;
+      margin-top:20px;
+      font-family:Consolas, monospace;
+      color:var(--gold);
+      white-space:pre-line;
+    }
+
+    .project-link{
+      display:inline-block;
+      margin-top:18px;
+      color:var(--gold);
+      font-weight:bold;
+      text-decoration:none;
+    }
+
+    .project-link:hover{
+      text-decoration:underline;
+    }
+
+    .contact-card{
+      text-align:center;
+    }
+
+    .contact-card a{
+      color:var(--gold);
+      text-decoration:none;
+    }
+
+    .contact-card a:hover{
+      text-decoration:underline;
+    }
+
+    footer{
+      text-align:center;
+      padding:50px 20px;
+      color:var(--steel);
+      border-top:1px solid var(--steel);
+    }
+
+    @media (max-width: 768px){
+      .hero h1{
+        font-size:42px;
+      }
+
+      .hero .tagline{
+        font-size:1.08rem;
+      }
+
+      .nav-inner{
+        align-items:flex-start;
+      }
+    }
+  </style>
 </head>
-
 <body>
 
-<nav>
-<div class="container nav-inner">
+  <nav>
+    <div class="container nav-inner">
+      <a href="index.html" class="brand">
+        <img src="assets/logo.png" alt="Lionyx-E logo">
+        <span>LIONYX-E</span>
+      </a>
 
-<div class="logo">
-<img src="assets/logo.png">
-<span>Lionyx-E</span>
-</div>
+      <div class="nav-links">
+        <a href="#services">Services</a>
+        <a href="#clients">Who We Work With</a>
+        <a href="#projects">Projects</a>
+        <a href="#architecture">Architecture</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+  </nav>
 
-<div>
-<a href="#services">Services</a>
-<a href="#projects">Projects</a>
-<a href="#architecture">Architecture</a>
-<a href="#contact">Contact</a>
-</div>
+  <header class="hero">
+    <div class="container">
+      <img src="assets/logo.png" alt="Lionyx-E logo" class="hero-logo">
 
-</div>
-</nav>
+      <h1>LIONYX-E</h1>
 
+      <p class="tagline">OPERATIONAL INTELLIGENCE. ENGINEERED.</p>
 
-<header class="hero">
+      <p class="subtext">
+        Automation systems for operations, finance and property management.
+      </p>
 
-<h1>Operational Automation Systems for Admin-Heavy SMEs</h1>
+      <a class="button" href="#projects">View Automation Systems</a>
+    </div>
+  </header>
 
-<p>
-Lionyx-E builds Excel + Python automation systems that transform spreadsheet workflows
-into reliable operational pipelines for finance, operations and property management teams.
-</p>
+  <div class="trust-strip">
+    ✓ Registered South African Business &nbsp;&nbsp; ✓ Excel + Python Automation Systems &nbsp;&nbsp; ✓ Professional Domain Email Infrastructure &nbsp;&nbsp; ✓ Operational Dashboards and Reporting Pipelines
+  </div>
 
-<a class="button" href="#projects">View Systems</a>
+  <section class="section">
+    <div class="container">
+      <div class="intro-card">
+        <h2 class="section-title" style="margin-top:0;">Registered South African Business</h2>
 
-</header>
+        <p>
+          Lionyx-E Automation Systems is an officially registered South African business focused on
+          building operational automation systems for organisations that rely on spreadsheet-driven workflows.
+        </p>
 
+        <p>
+          The business develops structured systems that connect Excel data, Python processing engines,
+          and dashboard-ready outputs to reduce manual operational workload.
+        </p>
+      </div>
+    </div>
+  </section>
 
-<div class="trust-strip">
+  <section id="services" class="section">
+    <div class="container">
+      <h2 class="section-title">Services</h2>
 
-✓ Registered South African Business  
-✓ Domain-based professional email infrastructure  
-✓ Excel + Python automation systems  
-✓ Operational dashboards and reporting pipelines
+      <div class="grid">
+        <div class="card">
+          <h3>Financial Workflow Automation</h3>
+          <p>
+            Reconciliation automation, ledger processing, reporting pipelines and validation workflows.
+          </p>
+        </div>
 
-</div>
+        <div class="card">
+          <h3>Property Operations Systems</h3>
+          <p>
+            Tenant arrears monitoring, maintenance tracking, automated reminders and portfolio dashboards.
+          </p>
+        </div>
 
+        <div class="card">
+          <h3>Internal Reporting Automation</h3>
+          <p>
+            Recurring operational reports, dashboard pipelines and Excel-to-Python workflow automation.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-<section class="section container">
+  <section id="clients" class="section">
+    <div class="container">
+      <h2 class="section-title">Who Lionyx-E Works With</h2>
 
-<div class="card">
+      <div class="grid">
+        <div class="card">
+          <h3>Property Management Teams</h3>
+          <p>
+            Automation systems for arrears tracking, maintenance workflows and portfolio reporting.
+          </p>
+        </div>
 
-<h3>Registered South African Business</h3>
+        <div class="card">
+          <h3>Finance &amp; Operations Teams</h3>
+          <p>
+            Automation of reconciliation processes, reporting pipelines and validation workflows.
+          </p>
+        </div>
 
-<p>
-Lionyx-E Automation Systems is an officially registered South African business
-focused on building operational automation systems for organisations that rely
-on spreadsheet-driven workflows.
-</p>
+        <div class="card">
+          <h3>Admin-Heavy SMEs</h3>
+          <p>
+            Businesses that rely heavily on Excel and need reliable operational automation.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-<p>
-The company develops structured automation pipelines that connect Excel data,
-Python processing engines and operational dashboards.
-</p>
+  <section id="projects" class="section">
+    <div class="container">
+      <h2 class="section-title">Automation Systems</h2>
 
-</div>
+      <div class="grid">
+        <div class="card">
+          <h3>Tenant Arrears Automation Engine</h3>
 
-</section>
+          <p>
+            Automated arrears analysis system for property portfolios. Applies FIFO payment allocation
+            logic and generates operational follow-up outputs.
+          </p>
 
+          <img class="project-image" src="assets/arrears-dashboard.png" alt="Tenant arrears dashboard screenshot">
 
-<section id="services" class="section container">
-
-<h2 class="section-title">Services</h2>
-
-<div class="grid">
-
-<div class="card">
-<h3>Financial Workflow Automation</h3>
-<p>
-Reconciliation automation, ledger processing, reporting pipelines and validation workflows.
-</p>
-</div>
-
-<div class="card">
-<h3>Property Operations Systems</h3>
-<p>
-Tenant arrears monitoring, maintenance tracking, automated reminders and portfolio dashboards.
-</p>
-</div>
-
-<div class="card">
-<h3>Internal Reporting Automation</h3>
-<p>
-Recurring operational reports, dashboard pipelines and Excel-to-Python workflow automation.
-</p>
-</div>
-
-</div>
-
-</section>
-
-
-<section class="section container">
-
-<h2 class="section-title">Who Lionyx-E Works With</h2>
-
-<div class="grid">
-
-<div class="card">
-<h3>Property Management Teams</h3>
-<p>Automation systems for arrears tracking, maintenance workflows and portfolio reporting.</p>
-</div>
-
-<div class="card">
-<h3>Finance & Operations Teams</h3>
-<p>Automation of reconciliation processes, reporting pipelines and validation workflows.</p>
-</div>
-
-<div class="card">
-<h3>Admin-Heavy SMEs</h3>
-<p>Businesses that rely heavily on Excel and require reliable operational automation.</p>
-</div>
-
-</div>
-
-</section>
-
-
-<section id="projects" class="section container">
-
-<h2 class="section-title">Automation Systems</h2>
-
-<div class="grid">
-
-
-<div class="card">
-
-<h3>Tenant Arrears Automation Engine</h3>
-
-<p>
-Automated arrears analysis system for property portfolios.
-Applies FIFO payment allocation logic and generates operational follow-up outputs.
-</p>
-
-<img class="project-image" src="assets/arrears-dashboard.png">
-
-<div class="diagram">
-
-Excel Ledger
+          <div class="diagram">Excel Ledger
 ↓
 Python Arrears Engine
 ↓
@@ -306,33 +401,22 @@ FIFO Allocation Logic
 ↓
 Arrears Snapshot + Reminders
 ↓
-Operational Dashboard
+Operational Dashboard</div>
 
-</div>
+          <a class="project-link" href="projects/arrears-engine.html">View Full System Details</a>
+        </div>
 
-<p>
-<a href="projects/arrears-engine.html">
-View Full System Details
-</a>
-</p>
+        <div class="card">
+          <h3>Maintenance Request Tracking System</h3>
 
-</div>
+          <p>
+            Operational workflow automation converting maintenance request intake into structured tracking
+            data and automated weekly summaries.
+          </p>
 
+          <img class="project-image" src="assets/maintenance-dashboard.png" alt="Maintenance dashboard screenshot">
 
-<div class="card">
-
-<h3>Maintenance Request Tracking System</h3>
-
-<p>
-Operational workflow automation converting maintenance request intake
-into structured tracking data and automated weekly summaries.
-</p>
-
-<img class="project-image" src="assets/maintenance-dashboard.png">
-
-<div class="diagram">
-
-Request Intake (Excel)
+          <div class="diagram">Request Intake (Excel)
 ↓
 Python Processing Engine
 ↓
@@ -340,32 +424,20 @@ Maintenance Tracking Dataset
 ↓
 Weekly Summary Output
 ↓
-Operations Dashboard
+Operations Dashboard</div>
 
-</div>
+          <a class="project-link" href="projects/maintenance-tracker.html">View Full System Details</a>
+        </div>
+      </div>
+    </div>
+  </section>
 
-<p>
-<a href="projects/maintenance-tracker.html">
-View Full System Details
-</a>
-</p>
+  <section id="architecture" class="section">
+    <div class="container">
+      <h2 class="section-title">System Architecture</h2>
 
-</div>
-
-</div>
-
-</section>
-
-
-<section id="architecture" class="section container">
-
-<h2 class="section-title">System Architecture</h2>
-
-<div class="card">
-
-<div class="diagram">
-
-Operational Data (Excel)
+      <div class="card">
+        <div class="diagram">Operational Data (Excel)
 ↓
 Validation Layer
 ↓
@@ -373,62 +445,50 @@ Python Processing Engine
 ↓
 Automated Outputs
 ↓
-Operational Dashboards
+Operational Dashboards</div>
 
-</div>
+        <p style="margin-top:20px;">
+          Lionyx-E systems preserve familiar spreadsheet interfaces while shifting processing logic
+          into structured automation pipelines.
+        </p>
+      </div>
+    </div>
+  </section>
 
-<p style="margin-top:20px">
+  <section id="contact" class="section">
+    <div class="container">
+      <h2 class="section-title">Contact</h2>
 
-Lionyx-E systems preserve familiar spreadsheet interfaces while shifting
-processing logic into reliable automation pipelines.
+      <div class="card contact-card">
+        <p>
+          Need to automate a manual workflow? Tell Lionyx-E what process is repetitive,
+          spreadsheet-heavy or difficult to manage.
+        </p>
 
-</p>
+        <p>
+          General enquiries:<br>
+          <a href="mailto:info@lionyx-e.co.za">info@lionyx-e.co.za</a>
+        </p>
 
-</div>
+        <p>
+          Direct contact:<br>
+          <a href="mailto:nicola@lionyx-e.co.za">nicola@lionyx-e.co.za</a>
+        </p>
 
-</section>
+        <p>
+          Support:<br>
+          <a href="mailto:support@lionyx-e.co.za">support@lionyx-e.co.za</a>
+        </p>
+      </div>
+    </div>
+  </section>
 
-
-<section id="contact" class="section container">
-
-<h2 class="section-title">Contact</h2>
-
-<div class="card">
-
-<p>
-Need to automate a manual workflow?  
-Tell Lionyx-E what process is repetitive, spreadsheet-heavy or difficult to manage.
-</p>
-
-<p>
-General enquiries:<br>
-<a href="mailto:info@lionyx-e.co.za">info@lionyx-e.co.za</a>
-</p>
-
-<p>
-Direct contact:<br>
-<a href="mailto:nicola@lionyx-e.co.za">nicola@lionyx-e.co.za</a>
-</p>
-
-<p>
-Support:<br>
-<a href="mailto:support@lionyx-e.co.za">support@lionyx-e.co.za</a>
-</p>
-
-</div>
-
-</section>
-
-
-<footer>
-
-Lionyx-E Automation Systems  
-Registered South African Business  
-
-info@lionyx-e.co.za  
-lionyx-e.co.za
-
-</footer>
+  <footer>
+    LIONYX-E AUTOMATION SYSTEMS<br>
+    Registered South African Business<br><br>
+    info@lionyx-e.co.za<br>
+    lionyx-e.co.za
+  </footer>
 
 </body>
 </html>

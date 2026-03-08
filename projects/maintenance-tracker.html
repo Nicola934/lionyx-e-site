@@ -9,135 +9,169 @@
     content="Case study for the Maintenance Request Tracking System by Lionyx-E Automation Systems."
   />
   <link rel="icon" type="image/png" href="../assets/favicon.png" />
+
   <style>
+    :root{
+      --onyx:#121212;
+      --gold:#D6A436;
+      --steel:#888C94;
+      --white:#F0F0F0;
+
+      --panel:#121212;
+      --card:#121212;
+      --divider:#888C94;
+    }
+
+    *{
+      box-sizing:border-box;
+    }
+
     body{
-      font-family: Arial, sans-serif;
       margin:0;
-      background:#0f172a;
-      color:white;
+      font-family:Arial, sans-serif;
+      background:var(--onyx);
+      color:var(--white);
       line-height:1.65;
     }
 
     .container{
       max-width:1000px;
       margin:auto;
-      padding:20px;
+      padding:0 20px;
     }
 
     nav{
-      background:#020617;
-      border-bottom:1px solid #1e293b;
+      background:var(--onyx);
+      border-bottom:1px solid var(--steel);
     }
 
     .nav-inner{
       display:flex;
       justify-content:space-between;
       align-items:center;
-      padding:15px 0;
-      gap:16px;
+      gap:20px;
+      flex-wrap:wrap;
+      padding:16px 0;
+    }
+
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      color:var(--gold);
+      text-decoration:none;
+      font-weight:bold;
+      letter-spacing:1px;
+    }
+
+    .brand img{
+      height:40px;
+    }
+
+    .nav-links{
+      display:flex;
+      gap:20px;
       flex-wrap:wrap;
     }
 
-    .logo{
-      display:flex;
-      align-items:center;
-      gap:10px;
-      font-weight:bold;
-    }
-
-    .logo img{
-      height:34px;
-    }
-
-    nav a{
-      color:#94a3b8;
+    .nav-links a{
+      color:var(--steel);
       text-decoration:none;
-      margin-left:18px;
     }
 
-    nav a:hover{
-      color:white;
+    .nav-links a:hover{
+      color:var(--gold);
     }
 
     .hero{
-      padding:70px 20px 40px;
       text-align:center;
+      padding:80px 20px 40px;
     }
 
     .hero h1{
-      font-size:42px;
-      margin-bottom:12px;
+      margin:0 0 14px;
+      font-size:46px;
+      color:var(--gold);
+      letter-spacing:1px;
     }
 
     .hero p{
-      color:#94a3b8;
       max-width:760px;
       margin:auto;
+      color:var(--steel);
     }
 
     .section{
-      padding:28px 20px;
+      padding:28px 0;
     }
 
     .card{
-      background:#1e293b;
+      background:var(--card);
+      border:1px solid var(--steel);
+      border-radius:10px;
       padding:30px;
-      border-radius:12px;
       margin-bottom:22px;
     }
 
-    .card h2, .card h3{
+    .card h2,
+    .card h3{
       margin-top:0;
-    }
-
-    .image{
-      width:100%;
-      border-radius:10px;
-      border:1px solid #334155;
-      margin-top:18px;
-    }
-
-    .diagram{
-      background:#020617;
-      border:1px solid #334155;
-      padding:20px;
-      margin-top:20px;
-      font-family:monospace;
-      color:#38bdf8;
-      border-radius:10px;
-      white-space:pre-line;
+      color:var(--gold);
     }
 
     .grid{
       display:grid;
       grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-      gap:20px;
+      gap:22px;
+    }
+
+    .image{
+      width:100%;
+      margin-top:18px;
+      border:1px solid var(--steel);
+      border-radius:10px;
+      display:block;
+    }
+
+    .diagram{
+      background:var(--onyx);
+      border:1px solid var(--steel);
+      border-radius:10px;
+      padding:20px;
+      margin-top:20px;
+      font-family:Consolas, monospace;
+      color:var(--gold);
+      white-space:pre-line;
     }
 
     .button{
       display:inline-block;
       padding:12px 18px;
-      background:#38bdf8;
-      color:#020617;
+      background:var(--gold);
+      color:var(--onyx);
       text-decoration:none;
-      border-radius:8px;
+      border-radius:6px;
       font-weight:bold;
+      margin-right:12px;
+      margin-top:12px;
     }
 
     .button.secondary{
       background:transparent;
-      color:#38bdf8;
-      border:1px solid #38bdf8;
+      color:var(--gold);
+      border:1px solid var(--gold);
+    }
+
+    a{
+      color:var(--gold);
     }
 
     footer{
       text-align:center;
-      padding:40px;
-      color:#64748b;
-    }
-
-    a{
-      color:#38bdf8;
+      padding:50px 20px;
+      color:var(--steel);
+      border-top:1px solid var(--steel);
+      margin-top:40px;
     }
   </style>
 </head>
@@ -145,12 +179,12 @@
 
   <nav>
     <div class="container nav-inner">
-      <div class="logo">
+      <a href="../index.html" class="brand">
         <img src="../assets/logo.png" alt="Lionyx-E logo">
-        <span>Lionyx-E</span>
-      </div>
+        <span>LIONYX-E</span>
+      </a>
 
-      <div>
+      <div class="nav-links">
         <a href="../index.html">Home</a>
         <a href="../index.html#services">Services</a>
         <a href="../index.html#projects">Projects</a>
@@ -160,35 +194,38 @@
   </nav>
 
   <header class="hero">
-    <h1>Maintenance Request Tracking System</h1>
-    <p>
-      A workflow automation system that converts spreadsheet-based maintenance request intake
-      into structured tracking, weekly operational summaries, and dashboard-ready outputs.
-    </p>
-  </header>
-
-  <section class="section container">
-
-    <div class="card">
-      <h2>Business Problem</h2>
+    <div class="container">
+      <h1>Maintenance Request Tracking System</h1>
       <p>
-        Maintenance processes often become fragmented across emails, spreadsheets, verbal follow-ups,
-        and manually assembled weekly reports.
-      </p>
-      <p>
-        This creates poor visibility, inconsistent tracking, and operational friction for teams managing
-        properties or facilities.
+        A workflow automation system that converts spreadsheet-based maintenance request intake
+        into structured tracking, weekly operational summaries and dashboard-ready outputs.
       </p>
     </div>
+  </header>
 
-    <div class="card">
-      <h2>System Built</h2>
-      <p>
-        Lionyx-E designed a maintenance tracking workflow that captures request intake through a familiar
-        spreadsheet structure, processes the data through Python, and produces structured tracking and summary outputs.
-      </p>
+  <section class="section">
+    <div class="container">
 
-      <div class="diagram">Request Intake Workbook
+      <div class="card">
+        <h2>Business Problem</h2>
+        <p>
+          Maintenance processes often become fragmented across emails, spreadsheets, verbal follow-ups
+          and manually assembled weekly reports.
+        </p>
+        <p>
+          This creates poor visibility, inconsistent tracking and operational friction for teams managing
+          properties or facilities.
+        </p>
+      </div>
+
+      <div class="card">
+        <h2>System Built</h2>
+        <p>
+          Lionyx-E designed a maintenance tracking workflow that captures request intake through a familiar
+          spreadsheet structure, processes the data through Python and produces structured tracking and summary outputs.
+        </p>
+
+        <div class="diagram">Request Intake Workbook
 ↓
 Validation & Processing Layer
 ↓
@@ -200,73 +237,69 @@ Weekly Summary Output
 ↓
 Operations Dashboard</div>
 
-      <img class="image" src="../assets/maintenance-dashboard.png" alt="Maintenance tracking dashboard screenshot">
-    </div>
+        <img class="image" src="../assets/maintenance-dashboard.png" alt="Maintenance dashboard screenshot">
+      </div>
 
-    <div class="grid">
-      <div class="card">
-        <h3>Core Workflow</h3>
-        <p>
-          The system organizes maintenance information into a repeatable structure so requests can be tracked,
-          summarized, and reviewed without constant manual reshaping of spreadsheet data.
-        </p>
+      <div class="grid">
+        <div class="card">
+          <h3>Core Workflow</h3>
+          <p>
+            The system organizes maintenance information into a repeatable structure so requests can be tracked,
+            summarized and reviewed without constant manual reshaping of spreadsheet data.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>Operational Outputs</h3>
+          <p>
+            Weekly summaries and dashboard-ready outputs improve visibility for managers who need a cleaner picture
+            of maintenance activity and workload distribution.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>Business Outcome</h3>
+          <p>
+            The result is a more controlled maintenance workflow, less manual reporting effort
+            and clearer operational communication.
+          </p>
+        </div>
       </div>
 
       <div class="card">
-        <h3>Operational Outputs</h3>
-        <p>
-          Weekly summaries and dashboard-ready outputs improve visibility for managers who need a cleaner picture
-          of maintenance activity and workload distribution.
-        </p>
+        <h2>Technology Structure</h2>
+        <p>This system follows the same Lionyx-E operating model:</p>
+        <ul>
+          <li>Excel for practical request intake and visibility</li>
+          <li>Python for workflow processing and structured output generation</li>
+          <li>Summary outputs that support recurring operational reporting</li>
+          <li>A design suitable for admin-heavy property or facilities workflows</li>
+        </ul>
       </div>
 
       <div class="card">
-        <h3>Business Outcome</h3>
+        <h2>Project Links</h2>
         <p>
-          The result is a more controlled maintenance workflow, less manual reporting effort,
-          and clearer operational communication.
+          GitHub Profile / Projects:<br>
+          <a href="https://github.com/Nicola934" target="_blank" rel="noopener noreferrer">
+            View Lionyx-E Automation Projects
+          </a>
         </p>
-      </div>
-    </div>
 
-    <div class="card">
-      <h2>Technology Structure</h2>
-      <p>
-        This system follows the same Lionyx-E operating model:
-      </p>
+        <p>
+          This project reflects Lionyx-E’s approach to building workflow systems that are operationally useful,
+          not just technically interesting.
+        </p>
 
-      <ul>
-        <li>Excel for practical request intake and visibility</li>
-        <li>Python for workflow processing and structured output generation</li>
-        <li>Summary outputs that support recurring operational reporting</li>
-        <li>A design suitable for admin-heavy property or facilities workflows</li>
-      </ul>
-    </div>
-
-    <div class="card">
-      <h2>Project Links</h2>
-      <p>
-        GitHub Profile / Projects:<br>
-        <a href="https://github.com/Nicola934" target="_blank" rel="noopener noreferrer">
-          View Lionyx-E Automation Projects
-        </a>
-      </p>
-
-      <p>
-        This project reflects Lionyx-E’s approach to building workflow systems that are operationally useful,
-        not just technically interesting.
-      </p>
-
-      <p style="margin-top:20px;">
         <a class="button" href="mailto:info@lionyx-e.co.za">Discuss a Similar Workflow</a>
         <a class="button secondary" href="../index.html">Back to Homepage</a>
-      </p>
-    </div>
+      </div>
 
+    </div>
   </section>
 
   <footer>
-    Lionyx-E Automation Systems<br>
+    LIONYX-E AUTOMATION SYSTEMS<br>
     Registered South African Business
   </footer>
 
