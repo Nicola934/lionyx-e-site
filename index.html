@@ -3,24 +3,35 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Lionyx-E Automation Systems</title>
+  <title>Lionyx-E Automation Systems (Pty) Ltd | Arrears Control System for Property Managers</title>
   <meta
     name="description"
-    content="Lionyx-E builds operational automation systems for finance, operations and property management teams."
+    content="Lionyx-E is an arrears control system for property managers that corrects distorted arrears aging by rebuilding debt timing from proper partial payment allocation."
   />
   <link rel="icon" type="image/png" href="assets/favicon.png" />
-
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Public+Sans:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
   <style>
     :root{
-      --onyx:#121212;
-      --gold:#D6A436;
-      --steel:#888C94;
-      --white:#F0F0F0;
-
-      --panel:#121212;
-      --panel-2:#121212;
-      --card:#121212;
-      --divider:#888C94;
+      --onyx:#0f0f0f;
+      --onyx-soft:#151515;
+      --onyx-deep:#090909;
+      --gold:#d6a436;
+      --gold-soft:#f2d086;
+      --steel:#8b8f97;
+      --mist:#c8cbd2;
+      --white:#f4f1ea;
+      --line:rgba(214, 164, 54, 0.25);
+      --panel:rgba(21, 21, 21, 0.92);
+      --panel-strong:rgba(18, 18, 18, 0.98);
+      --shadow:0 24px 70px rgba(0, 0, 0, 0.34);
+      --radius:22px;
+      --radius-sm:14px;
+      --max-width:1180px;
     }
 
     *{
@@ -33,462 +44,1404 @@
 
     body{
       margin:0;
-      font-family:Arial, sans-serif;
-      background:var(--onyx);
+      font-family:"Public Sans", "Segoe UI", sans-serif;
       color:var(--white);
-      line-height:1.6;
+      background:
+        radial-gradient(circle at top left, rgba(214, 164, 54, 0.12), transparent 28%),
+        radial-gradient(circle at top right, rgba(214, 164, 54, 0.08), transparent 22%),
+        linear-gradient(180deg, #111111 0%, #0d0d0d 48%, #090909 100%);
+      line-height:1.65;
+    }
+
+    img{
+      max-width:100%;
+      display:block;
+    }
+
+    a{
+      color:inherit;
     }
 
     .container{
-      max-width:1100px;
-      margin:auto;
-      padding:0 20px;
+      width:min(var(--max-width), calc(100% - 40px));
+      margin:0 auto;
+    }
+
+    .eyebrow{
+      margin:0 0 18px;
+      color:var(--gold-soft);
+      font-size:0.8rem;
+      font-weight:700;
+      letter-spacing:0.18em;
+      text-transform:uppercase;
+    }
+
+    .section-kicker{
+      margin:0 0 12px;
+      color:var(--gold-soft);
+      font-size:0.78rem;
+      font-weight:700;
+      letter-spacing:0.16em;
+      text-transform:uppercase;
+    }
+
+    .section-heading{
+      margin:0;
+      font-family:"Cormorant Garamond", Georgia, serif;
+      font-size:clamp(2.4rem, 4vw, 4rem);
+      line-height:1.02;
+      letter-spacing:0.01em;
+      color:var(--white);
+    }
+
+    .section-lead{
+      max-width:760px;
+      margin:18px 0 0;
+      color:var(--mist);
+      font-size:1.05rem;
     }
 
     nav{
-      background:var(--onyx);
-      border-bottom:1px solid var(--steel);
       position:sticky;
       top:0;
       z-index:100;
+      backdrop-filter:blur(18px);
+      background:rgba(12, 12, 12, 0.9);
+      border-bottom:1px solid rgba(214, 164, 54, 0.14);
     }
 
     .nav-inner{
       display:flex;
-      justify-content:space-between;
       align-items:center;
-      gap:20px;
-      padding:16px 0;
-      flex-wrap:wrap;
+      justify-content:space-between;
+      gap:24px;
+      min-height:78px;
     }
 
     .brand{
-      display:flex;
+      display:inline-flex;
       align-items:center;
-      gap:12px;
-      font-weight:bold;
-      letter-spacing:1px;
-      color:var(--gold);
+      gap:14px;
       text-decoration:none;
+      min-width:0;
     }
 
     .brand img{
-      height:42px;
-      width:auto;
-      display:block;
+      width:44px;
+      height:44px;
+      object-fit:contain;
+    }
+
+    .brand-text{
+      display:flex;
+      flex-direction:column;
+      gap:2px;
+      min-width:0;
+    }
+
+    .brand-name{
+      color:var(--gold);
+      font-size:0.98rem;
+      font-weight:700;
+      letter-spacing:0.14em;
+      text-transform:uppercase;
+      white-space:nowrap;
+    }
+
+    .brand-subtitle{
+      color:var(--steel);
+      font-size:0.72rem;
+      letter-spacing:0.14em;
+      text-transform:uppercase;
+      white-space:nowrap;
     }
 
     .nav-links{
       display:flex;
-      gap:20px;
+      align-items:center;
+      gap:22px;
       flex-wrap:wrap;
     }
 
     .nav-links a{
-      color:var(--steel);
       text-decoration:none;
-      font-size:0.95rem;
+      color:var(--mist);
+      font-size:0.93rem;
     }
 
-    .nav-links a:hover{
-      color:var(--gold);
+    .nav-links a:hover,
+    .nav-links a:focus-visible{
+      color:var(--gold-soft);
+    }
+
+    .nav-cta{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding:11px 18px;
+      border:1px solid rgba(214, 164, 54, 0.35);
+      border-radius:999px;
+      color:var(--gold-soft);
     }
 
     .hero{
-      text-align:center;
-      padding:100px 20px 80px;
+      padding:88px 0 56px;
     }
 
-    .hero-logo{
-        width: 260px;
-        max-width: 90%;
-         margin: 0 auto 30px;
-         display: block;
+    .hero-grid{
+      display:grid;
+      grid-template-columns:minmax(0, 1.2fr) minmax(320px, 0.8fr);
+      gap:34px;
+      align-items:stretch;
     }
 
-    .hero h1{
-      margin:0 0 12px;
-      font-size:56px;
-      letter-spacing:2px;
-      color:var(--gold);
+    .hero-copy{
+      padding:32px 0;
     }
 
-    .hero .tagline{
-      margin:0 auto 12px;
+    .hero-title{
+      margin:0;
+      font-family:"Cormorant Garamond", Georgia, serif;
+      font-size:clamp(3.2rem, 6vw, 5.6rem);
+      line-height:0.96;
+      letter-spacing:0.01em;
+      max-width:820px;
+    }
+
+    .hero-title .accent{
+      color:var(--gold-soft);
+    }
+
+    .hero-summary{
+      margin:28px 0 0;
       max-width:760px;
-      color:var(--steel);
-      font-size:1.25rem;
-      letter-spacing:1px;
+      color:var(--mist);
+      font-size:1.12rem;
     }
 
-    .hero .subtext{
-      margin:0 auto;
-      max-width:780px;
+    .hero-actions{
+      display:flex;
+      flex-wrap:wrap;
+      gap:14px;
+      margin-top:34px;
+    }
+
+    .button{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      min-height:52px;
+      padding:0 24px;
+      border-radius:999px;
+      text-decoration:none;
+      font-weight:700;
+      letter-spacing:0.01em;
+      transition:background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+    }
+
+    .button-primary{
+      background:linear-gradient(135deg, #f0c96f 0%, #d6a436 70%, #b68119 100%);
+      color:var(--onyx);
+      box-shadow:0 18px 40px rgba(214, 164, 54, 0.18);
+    }
+
+    .button-primary:hover,
+    .button-primary:focus-visible{
+      background:linear-gradient(135deg, #f6d88f 0%, #ddb34f 72%, #ba8b31 100%);
+    }
+
+    .button-secondary{
+      border:1px solid rgba(214, 164, 54, 0.32);
+      color:var(--white);
+      background:rgba(255, 255, 255, 0.02);
+    }
+
+    .button-secondary:hover,
+    .button-secondary:focus-visible{
+      border-color:rgba(214, 164, 54, 0.55);
+      color:var(--gold-soft);
+    }
+
+    .hero-panel,
+    .panel,
+    .feature-card,
+    .module-card,
+    .tier-card,
+    .audience-card,
+    .step-card,
+    .contact-card{
+      background:linear-gradient(180deg, rgba(24, 24, 24, 0.96) 0%, rgba(15, 15, 15, 0.98) 100%);
+      border:1px solid rgba(214, 164, 54, 0.14);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+    }
+
+    .hero-panel{
+      padding:28px;
+      position:relative;
+      overflow:hidden;
+    }
+
+    .hero-panel::before{
+      content:"";
+      position:absolute;
+      inset:auto -80px -80px auto;
+      width:220px;
+      height:220px;
+      background:radial-gradient(circle, rgba(214, 164, 54, 0.22), transparent 70%);
+      pointer-events:none;
+    }
+
+    .panel-label{
+      margin:0 0 18px;
+      color:var(--gold-soft);
+      font-size:0.78rem;
+      font-weight:700;
+      letter-spacing:0.14em;
+      text-transform:uppercase;
+    }
+
+    .panel-title{
+      margin:0;
+      font-family:"Cormorant Garamond", Georgia, serif;
+      font-size:2rem;
+      line-height:1;
+    }
+
+    .panel-text{
+      margin:14px 0 0;
+      color:var(--mist);
+    }
+
+    .signal-list{
+      display:grid;
+      gap:12px;
+      margin-top:22px;
+    }
+
+    .signal-item{
+      padding:14px 16px;
+      border:1px solid rgba(214, 164, 54, 0.12);
+      border-radius:var(--radius-sm);
+      background:rgba(255, 255, 255, 0.02);
+    }
+
+    .signal-item strong{
+      display:block;
+      color:var(--white);
+      font-size:0.98rem;
+    }
+
+    .signal-item span{
+      display:block;
+      margin-top:5px;
+      color:var(--steel);
+      font-size:0.92rem;
+    }
+
+    .trust-band{
+      padding:18px 0;
+      border-top:1px solid rgba(214, 164, 54, 0.12);
+      border-bottom:1px solid rgba(214, 164, 54, 0.12);
+      background:rgba(255, 255, 255, 0.02);
+    }
+
+    .trust-grid{
+      display:grid;
+      grid-template-columns:repeat(4, minmax(0, 1fr));
+      gap:18px;
+    }
+
+    .trust-item{
+      padding:12px 0;
+      color:var(--mist);
+      font-size:0.94rem;
+    }
+
+    .trust-item strong{
+      display:block;
+      color:var(--gold-soft);
+      font-size:0.78rem;
+      font-weight:700;
+      letter-spacing:0.14em;
+      text-transform:uppercase;
+      margin-bottom:6px;
+    }
+
+    section{
+      padding:96px 0;
+    }
+
+    .section-shell{
+      display:grid;
+      grid-template-columns:minmax(260px, 0.8fr) minmax(0, 1.2fr);
+      gap:34px;
+      align-items:start;
+    }
+
+    .panel{
+      padding:30px;
+    }
+
+    .problem-grid,
+    .approach-grid,
+    .modules-grid,
+    .tiers-grid,
+    .audience-grid,
+    .steps-grid{
+      display:grid;
+      gap:20px;
+    }
+
+    .problem-grid{
+      grid-template-columns:repeat(2, minmax(0, 1fr));
+    }
+
+    .feature-card{
+      padding:26px;
+    }
+
+    .feature-card h3,
+    .module-card h3,
+    .audience-card h3,
+    .step-card h3{
+      margin:0;
+      font-size:1.14rem;
+      line-height:1.3;
+      color:var(--white);
+    }
+
+    .feature-card p,
+    .module-card p,
+    .audience-card p,
+    .step-card p,
+    .contact-card p,
+    footer p{
+      margin:12px 0 0;
+      color:var(--mist);
+    }
+
+    .approach-grid{
+      grid-template-columns:repeat(4, minmax(0, 1fr));
+    }
+
+    .approach-step{
+      position:relative;
+      padding:24px 22px 22px;
+      min-height:230px;
+      background:linear-gradient(180deg, rgba(24, 24, 24, 0.94) 0%, rgba(10, 10, 10, 0.98) 100%);
+      border:1px solid rgba(214, 164, 54, 0.14);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+    }
+
+    .approach-step::after{
+      content:"";
+      position:absolute;
+      top:50%;
+      right:-10px;
+      width:20px;
+      height:1px;
+      background:rgba(214, 164, 54, 0.4);
+    }
+
+    .approach-step:last-child::after{
+      display:none;
+    }
+
+    .step-index{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      width:42px;
+      height:42px;
+      border-radius:50%;
+      background:rgba(214, 164, 54, 0.12);
+      color:var(--gold-soft);
+      font-size:0.86rem;
+      font-weight:700;
+      letter-spacing:0.08em;
+      text-transform:uppercase;
+      margin-bottom:18px;
+    }
+
+    .approach-step h3{
+      margin:0;
+      font-size:1.08rem;
+      color:var(--white);
+    }
+
+    .approach-step p{
+      margin:10px 0 0;
+      color:var(--mist);
+      font-size:0.95rem;
+    }
+
+    .modules-grid{
+      grid-template-columns:repeat(3, minmax(0, 1fr));
+    }
+
+    .module-card{
+      padding:28px;
+      display:flex;
+      flex-direction:column;
+      min-height:100%;
+    }
+
+    .module-label,
+    .card-label{
+      color:var(--gold-soft);
+      font-size:0.75rem;
+      font-weight:700;
+      letter-spacing:0.14em;
+      text-transform:uppercase;
+    }
+
+    .module-summary{
+      margin-top:14px;
+      padding-top:18px;
+      border-top:1px solid rgba(214, 164, 54, 0.12);
+      display:grid;
+      gap:15px;
+    }
+
+    .module-summary strong{
+      display:block;
+      color:var(--white);
+      font-size:0.83rem;
+      letter-spacing:0.08em;
+      text-transform:uppercase;
+      margin-bottom:6px;
+    }
+
+    .module-summary p{
+      margin:0;
+      color:var(--mist);
+      font-size:0.94rem;
+    }
+
+    .module-link{
+      display:inline-flex;
+      align-items:center;
+      margin-top:22px;
+      color:var(--gold-soft);
+      text-decoration:none;
+      font-weight:700;
+    }
+
+    .module-link:hover,
+    .module-link:focus-visible{
+      color:var(--white);
+    }
+
+    .tiers-grid{
+      grid-template-columns:repeat(3, minmax(0, 1fr));
+    }
+
+    .tier-card{
+      padding:28px;
+      display:flex;
+      flex-direction:column;
+      min-height:100%;
+    }
+
+    .tier-name{
+      margin:10px 0 0;
+      font-size:1.4rem;
+      color:var(--white);
+    }
+
+    .tier-for{
+      margin-top:14px;
+      padding-top:16px;
+      border-top:1px solid rgba(214, 164, 54, 0.12);
+      color:var(--mist);
+      font-size:0.95rem;
+    }
+
+    .tier-list{
+      list-style:none;
+      padding:0;
+      margin:18px 0 0;
+      display:grid;
+      gap:10px;
+    }
+
+    .tier-list li{
+      padding:10px 0 0;
+      border-top:1px solid rgba(214, 164, 54, 0.08);
+      color:var(--mist);
+      font-size:0.94rem;
+    }
+
+    .tier-capability{
+      margin-top:18px;
+      padding-top:18px;
+      border-top:1px solid rgba(214, 164, 54, 0.12);
+    }
+
+    .tier-capability strong{
+      display:block;
+      color:var(--white);
+      font-size:0.83rem;
+      letter-spacing:0.08em;
+      text-transform:uppercase;
+      margin-bottom:6px;
+    }
+
+    .tier-capability p{
+      margin:0;
+      color:var(--mist);
+      font-size:0.94rem;
+    }
+
+    .walkthrough-link{
+      display:inline-flex;
+      align-items:center;
+      margin-top:18px;
+      color:var(--gold-soft);
+      text-decoration:none;
+      font-weight:700;
+    }
+
+    .walkthrough-link:hover,
+    .walkthrough-link:focus-visible{
+      color:var(--white);
+    }
+
+    .audience-grid{
+      grid-template-columns:repeat(3, minmax(0, 1fr));
+    }
+
+    .audience-card,
+    .step-card{
+      padding:26px;
+    }
+
+    .steps-grid{
+      grid-template-columns:repeat(3, minmax(0, 1fr));
+    }
+
+    .step-card .step-index{
+      margin-bottom:16px;
+    }
+
+    .vision{
+      padding-top:0;
+    }
+
+    .vision-card{
+      position:relative;
+      overflow:hidden;
+      padding:38px;
+      background:
+        linear-gradient(135deg, rgba(214, 164, 54, 0.12), rgba(214, 164, 54, 0.02) 38%, rgba(16, 16, 16, 0.96) 78%),
+        linear-gradient(180deg, rgba(26, 26, 26, 0.96), rgba(11, 11, 11, 0.98));
+      border:1px solid rgba(214, 164, 54, 0.18);
+      border-radius:calc(var(--radius) + 4px);
+      box-shadow:var(--shadow);
+    }
+
+    .vision-card::before{
+      content:"";
+      position:absolute;
+      top:-120px;
+      right:-120px;
+      width:260px;
+      height:260px;
+      background:radial-gradient(circle, rgba(214, 164, 54, 0.22), transparent 70%);
+      pointer-events:none;
+    }
+
+    .vision-grid{
+      display:grid;
+      grid-template-columns:minmax(0, 1.1fr) minmax(280px, 0.9fr);
+      gap:28px;
+      align-items:start;
+    }
+
+    .progression{
+      display:grid;
+      gap:14px;
+    }
+
+    .progression-item{
+      display:grid;
+      grid-template-columns:64px minmax(0, 1fr);
+      gap:16px;
+      align-items:start;
+      padding:16px 18px;
+      border:1px solid rgba(214, 164, 54, 0.14);
+      border-radius:var(--radius-sm);
+      background:rgba(255, 255, 255, 0.03);
+    }
+
+    .progression-item .step-index{
+      margin:0;
+      width:48px;
+      height:48px;
+      font-size:0.76rem;
+    }
+
+    .progression-item strong{
+      display:block;
       color:var(--white);
       font-size:1rem;
     }
 
-    .button{
-      display:inline-block;
-      margin-top:32px;
-      padding:14px 26px;
-      background:var(--gold);
-      color:var(--onyx);
-      border-radius:6px;
-      font-weight:bold;
-      text-decoration:none;
-    }
-
-    .button:hover{
-      opacity:0.92;
-    }
-
-    .trust-strip{
-      background:var(--onyx);
-      border-top:1px solid var(--steel);
-      border-bottom:1px solid var(--steel);
-      padding:20px;
-      text-align:center;
-      color:var(--steel);
-      font-size:0.95rem;
-    }
-
-    .section{
-      padding:80px 0;
-    }
-
-    .section-title{
-      text-align:center;
-      color:var(--gold);
-      letter-spacing:1px;
-      margin:0 0 36px;
-      font-size:2rem;
-    }
-
-    .intro-card,
-    .card{
-      background:var(--card);
-      border:1px solid var(--steel);
-      border-radius:10px;
-      padding:30px;
-    }
-
-    .intro-card{
-      margin-top:0;
-    }
-
-    .grid{
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-      gap:24px;
-    }
-
-    .card h3{
-      margin-top:0;
-      color:var(--gold);
-    }
-
-    .card p,
-    .intro-card p{
-      color:var(--white);
-    }
-
-    .muted{
-      color:var(--steel);
-    }
-
-    .project-image{
-      margin-top:20px;
-      width:100%;
-      border:1px solid var(--steel);
-      border-radius:10px;
+    .progression-item span{
       display:block;
+      margin-top:6px;
+      color:var(--mist);
+      font-size:0.94rem;
     }
 
-    .diagram{
-      background:var(--onyx);
-      border:1px solid var(--steel);
-      border-radius:10px;
-      padding:20px;
-      margin-top:20px;
-      font-family:Consolas, monospace;
-      color:var(--gold);
-      white-space:pre-line;
-    }
-
-    .project-link{
-      display:inline-block;
-      margin-top:18px;
-      color:var(--gold);
-      font-weight:bold;
-      text-decoration:none;
-    }
-
-    .project-link:hover{
-      text-decoration:underline;
+    .contact{
+      padding-top:72px;
     }
 
     .contact-card{
-      text-align:center;
+      padding:40px;
+      display:grid;
+      grid-template-columns:minmax(0, 1.1fr) minmax(260px, 0.9fr);
+      gap:30px;
+      align-items:start;
     }
 
-    .contact-card a{
-      color:var(--gold);
+    .contact-title{
+      margin:0;
+      font-family:"Cormorant Garamond", Georgia, serif;
+      font-size:clamp(2.2rem, 4vw, 3.4rem);
+      line-height:1;
+    }
+
+    .contact-list{
+      display:grid;
+      gap:16px;
+    }
+
+    .contact-item{
+      padding:18px 20px;
+      border:1px solid rgba(214, 164, 54, 0.14);
+      border-radius:var(--radius-sm);
+      background:rgba(255, 255, 255, 0.02);
+    }
+
+    .contact-item strong{
+      display:block;
+      color:var(--gold-soft);
+      font-size:0.76rem;
+      font-weight:700;
+      letter-spacing:0.14em;
+      text-transform:uppercase;
+      margin-bottom:8px;
+    }
+
+    .contact-item a{
+      color:var(--white);
       text-decoration:none;
+      font-size:1rem;
+      font-weight:600;
     }
 
-    .contact-card a:hover{
-      text-decoration:underline;
+    .contact-item a:hover,
+    .contact-item a:focus-visible{
+      color:var(--gold-soft);
+    }
+
+    .contact-note{
+      margin-top:20px;
+      padding-top:20px;
+      border-top:1px solid rgba(214, 164, 54, 0.12);
+      color:var(--steel);
+      font-size:0.93rem;
     }
 
     footer{
-      text-align:center;
-      padding:50px 20px;
-      color:var(--steel);
-      border-top:1px solid var(--steel);
+      padding:34px 0 50px;
+      border-top:1px solid rgba(214, 164, 54, 0.12);
     }
 
-    @media (max-width: 768px){
-      .hero h1{
-        font-size:42px;
+    footer .container{
+      display:flex;
+      justify-content:space-between;
+      align-items:flex-start;
+      gap:20px;
+      flex-wrap:wrap;
+    }
+
+    footer p{
+      margin:0;
+      font-size:0.92rem;
+    }
+
+    .footer-mark{
+      color:var(--gold-soft);
+      font-weight:700;
+      letter-spacing:0.12em;
+      text-transform:uppercase;
+      margin-bottom:8px;
+    }
+
+    @media (max-width: 1080px){
+      .hero-grid,
+      .section-shell,
+      .vision-grid,
+      .contact-card{
+        grid-template-columns:1fr;
       }
 
-      .hero .tagline{
-        font-size:1.08rem;
+      .approach-grid{
+        grid-template-columns:repeat(2, minmax(0, 1fr));
       }
 
+      .approach-step::after{
+        display:none;
+      }
+
+      .modules-grid,
+      .tiers-grid,
+      .audience-grid,
+      .steps-grid{
+        grid-template-columns:repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 780px){
       .nav-inner{
+        padding:16px 0;
         align-items:flex-start;
+      }
+
+      .nav-links{
+        gap:14px;
+      }
+
+      .hero{
+        padding-top:68px;
+      }
+
+      section{
+        padding:72px 0;
+      }
+
+      .trust-grid,
+      .problem-grid,
+      .approach-grid,
+      .modules-grid,
+      .tiers-grid,
+      .audience-grid,
+      .steps-grid{
+        grid-template-columns:1fr;
+      }
+
+      .contact-card,
+      .vision-card,
+      .panel,
+      .hero-panel,
+      .module-card{
+        padding:28px 24px;
+      }
+
+      footer .container{
+        flex-direction:column;
       }
     }
   </style>
 </head>
 <body>
-
   <nav>
     <div class="container nav-inner">
-      <a href="index.html" class="brand">
-        <img src="assets/logo.png" alt="Lionyx-E logo">
-        <span>LIONYX-E</span>
+      <a href="index.html" class="brand" aria-label="Lionyx-E homepage">
+        <img src="assets/logo.png" alt="Lionyx-E logo" />
+        <span class="brand-text">
+          <span class="brand-name">Lionyx-E</span>
+          <span class="brand-subtitle">Automation Systems (Pty) Ltd</span>
+        </span>
       </a>
 
       <div class="nav-links">
-        <a href="#services">Services</a>
-        <a href="#clients">Who We Work With</a>
-        <a href="#projects">Projects</a>
+        <a href="#approach">Arrears Logic</a>
+        <a href="how-it-works.html">Walkthrough</a>
         <a href="#architecture">Architecture</a>
-        <a href="#contact">Contact</a>
+        <a href="#modules">Core Modules</a>
+        <a href="#tiers">View Pricing</a>
+        <a href="#contact" class="nav-cta">Request Arrears Review</a>
       </div>
     </div>
   </nav>
 
   <header class="hero">
-    <div class="container">
-      <img src="assets/logo.png" alt="Lionyx-E logo" class="hero-logo">
+    <div class="container hero-grid">
+      <div class="hero-copy">
+        <p class="eyebrow">Arrears Control for Property Managers</p>
+        <h1 class="hero-title">Restore arrears control before <span class="accent">distorted aging sends your team after the wrong tenants</span>.</h1>
+        <p class="hero-summary">
+          <strong>Arrears is not a balance problem. It is a time problem.</strong> Partial payments distort aging, teams make follow-up decisions on incorrect data, and older risk stays hidden beneath balances that look cleaner than they really are.
+        </p>
+        <p class="hero-summary">
+          When partial payments are allocated incorrectly, arrears buckets stop reflecting the real age of debt. That pushes teams toward the wrong follow-up priorities, hides high-risk tenants inside misleading balances, and gives management reporting that understates where exposure is actually building.
+        </p>
+        <p class="hero-summary">
+          See the before-and-after example below to see how corrected aging changes the decision picture.
+        </p>
+        <div class="hero-actions">
+          <a class="button button-primary" href="#contact">Request Arrears Review</a>
+          <a class="button button-secondary" href="#proof">See Before &amp; After</a>
+          <a class="button button-secondary" href="#tiers">View Pricing</a>
+        </div>
+      </div>
 
-      <h1>LIONYX-E</h1>
-
-      <p class="tagline">OPERATIONAL INTELLIGENCE. ENGINEERED.</p>
-
-      <p class="subtext">
-        Automation systems for operations, finance and property management.
-      </p>
-
-      <a class="button" href="#projects">View Automation Systems</a>
+      <aside class="hero-panel" aria-label="Lionyx-E arrears control logic">
+        <p class="panel-label">Arrears Control Logic</p>
+        <h2 class="panel-title">Correct the aging before you chase the tenant.</h2>
+        <p class="panel-text">
+          Lionyx-E helps property managers reconstruct arrears from tenant and ledger records so collections decisions are based on the real age of debt, not a distorted balance view.
+        </p>
+        <div class="signal-list">
+          <div class="signal-item">
+            <strong>Partial Payments</strong>
+            <span>Reallocated in the right order so older debt is not masked by newer charges.</span>
+          </div>
+          <div class="signal-item">
+            <strong>True Aging</strong>
+            <span>Arrears buckets are rebuilt to show what is actually current, overdue and deeply at risk.</span>
+          </div>
+          <div class="signal-item">
+            <strong>Follow-Up Priority</strong>
+            <span>Collections teams can work the right tenant accounts first instead of reacting to distorted snapshots.</span>
+          </div>
+          <div class="signal-item">
+            <strong>Reporting Confidence</strong>
+            <span>Management sees clearer portfolio exposure by age, tenant and arrears severity.</span>
+          </div>
+        </div>
+      </aside>
     </div>
   </header>
 
-  <div class="trust-strip">
-    ✓ Registered South African Business &nbsp;&nbsp; ✓ Excel + Python Automation Systems &nbsp;&nbsp; ✓ Professional Domain Email Infrastructure &nbsp;&nbsp; ✓ Operational Dashboards and Reporting Pipelines
+  <div class="trust-band" aria-label="Arrears control positioning">
+    <div class="container trust-grid">
+      <div class="trust-item">
+        <strong>Product Type</strong>
+        Arrears control system
+      </div>
+      <div class="trust-item">
+        <strong>Core Problem</strong>
+        Distorted arrears aging
+      </div>
+      <div class="trust-item">
+        <strong>Core Mechanism</strong>
+        FIFO-style payment allocation and aging reconstruction
+      </div>
+      <div class="trust-item">
+        <strong>Commercial Model</strong>
+        Subscription pricing by portfolio size
+      </div>
+    </div>
   </div>
 
-  <section class="section">
-    <div class="container">
-      <div class="intro-card">
-        <h2 class="section-title" style="margin-top:0;">Registered South African Business</h2>
-
-        <p>
-          Lionyx-E Automation Systems is an officially registered South African business focused on
-          building operational automation systems for organisations that rely on spreadsheet-driven workflows.
-        </p>
-
-        <p>
-          The business develops structured systems that connect Excel data, Python processing engines,
-          and dashboard-ready outputs to reduce manual operational workload.
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <section id="services" class="section">
-    <div class="container">
-      <h2 class="section-title">Services</h2>
-
-      <div class="grid">
-        <div class="card">
-          <h3>Financial Workflow Automation</h3>
-          <p>
-            Reconciliation automation, ledger processing, reporting pipelines and validation workflows.
+  <main>
+    <section id="problems">
+      <div class="container section-shell">
+        <div>
+          <p class="section-kicker">The Arrears Problem</p>
+          <h2 class="section-heading">The real issue is not only unpaid rent. It is incorrect visibility into how old the debt really is.</h2>
+          <p class="section-lead">
+            A ledger can still show the right outstanding balance while arrears timing is wrong. Once partial payments are allocated incorrectly, aging stops reflecting reality and collections control starts failing before management notices it.
           </p>
         </div>
 
-        <div class="card">
-          <h3>Property Operations Systems</h3>
-          <p>
-            Tenant arrears monitoring, maintenance tracking, automated reminders and portfolio dashboards.
-          </p>
-        </div>
+        <div class="problem-grid">
+          <article class="feature-card">
+            <p class="card-label">01</p>
+            <h3>Partial payments get applied incorrectly</h3>
+            <p>Older charges stay unpaid in the background when receipts are not allocated in the right order across the tenant ledger.</p>
+          </article>
 
-        <div class="card">
-          <h3>Internal Reporting Automation</h3>
-          <p>
-            Recurring operational reports, dashboard pipelines and Excel-to-Python workflow automation.
-          </p>
+          <article class="feature-card">
+            <p class="card-label">02</p>
+            <h3>Aging buckets become misleading</h3>
+            <p>Debt that should sit in older buckets can appear newer, which makes arrears reports look cleaner than the underlying position.</p>
+          </article>
+
+          <article class="feature-card">
+            <p class="card-label">03</p>
+            <h3>Teams chase the wrong tenants first</h3>
+            <p>Follow-up queues become unreliable when the system cannot show which accounts are genuinely oldest and most urgent.</p>
+          </article>
+
+          <article class="feature-card">
+            <p class="card-label">04</p>
+            <h3>Management sees the wrong risk picture</h3>
+            <p>Portfolio reporting can understate concentration and severity because hidden older debt is buried inside distorted arrears balances.</p>
+          </article>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section id="clients" class="section">
-    <div class="container">
-      <h2 class="section-title">Who Lionyx-E Works With</h2>
+    <section id="approach">
+      <div class="container">
+        <p class="section-kicker">Arrears Control Logic</p>
+        <h2 class="section-heading">Lionyx-E rebuilds arrears so property managers can act on the true age of debt.</h2>
+        <p class="section-lead">
+          The system takes tenant and ledger records, applies correct allocation logic to partial payments, restores the real aging structure, and turns that reconstruction into follow-up and reporting outputs that property managers can trust.
+        </p>
 
-      <div class="grid">
-        <div class="card">
-          <h3>Property Management Teams</h3>
-          <p>
-            Automation systems for arrears tracking, maintenance workflows and portfolio reporting.
+        <div class="approach-grid" style="margin-top:34px;">
+          <article class="approach-step">
+            <div class="step-index">01</div>
+            <h3>Capture ledger and tenant records</h3>
+            <p>Bring in the account history, charges, receipts and tenant references needed to evaluate arrears properly.</p>
+          </article>
+
+          <article class="approach-step">
+            <div class="step-index">02</div>
+            <h3>Rebuild arrears with correct allocation logic</h3>
+            <p>Apply FIFO-style payment allocation so partial payments are matched against debt in the order that preserves true arrears timing.</p>
+          </article>
+
+          <article class="approach-step">
+            <div class="step-index">03</div>
+            <h3>Restore the true aging structure</h3>
+            <p>Reconstructed balances show which debt is current, overdue and materially aged instead of flattening everything into one balance view.</p>
+          </article>
+
+          <article class="approach-step">
+            <div class="step-index">04</div>
+            <h3>Produce decision-ready outputs</h3>
+            <p>Use the corrected arrears picture for follow-up priorities, tenant risk review and reporting that reflects the real portfolio position.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="architecture">
+      <div class="container section-shell">
+        <div>
+          <p class="section-kicker">Arrears Reconstruction</p>
+          <h2 class="section-heading">How corrected arrears visibility is produced.</h2>
+          <p class="section-lead">
+            Lionyx-E takes tenant records, charges and receipts into one arrears reconstruction flow. Allocation logic rebuilds the debt timeline, then the system produces corrected aging, follow-up signals and reporting outputs that reflect the real risk position.
           </p>
         </div>
 
-        <div class="card">
-          <h3>Finance &amp; Operations Teams</h3>
-          <p>
-            Automation of reconciliation processes, reporting pipelines and validation workflows.
-          </p>
+        <div class="panel">
+          <p class="panel-label">Ledger to Decision Flow</p>
+          <div class="signal-list">
+            <div class="signal-item">
+              <strong>Inputs</strong>
+              <span>Tenant references, charges, receipts and ledger history enter the arrears reconstruction flow.</span>
+            </div>
+            <div class="signal-item">
+              <strong>Logic</strong>
+              <span>FIFO-style allocation logic rematches partial payments against older debt to recover the true timing of arrears.</span>
+            </div>
+            <div class="signal-item">
+              <strong>Outputs</strong>
+              <span>Corrected aging views, follow-up priorities and management reporting are produced from the rebuilt position.</span>
+            </div>
+            <div class="signal-item">
+              <strong>Control</strong>
+              <span>Teams act on true debt age instead of a balance snapshot that hides where the portfolio is deteriorating.</span>
+            </div>
+          </div>
+          <p class="panel-text">That is how Lionyx-E turns ledger history into usable arrears control.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="modules">
+      <div class="container">
+        <p class="section-kicker">Control Layers</p>
+        <h2 class="section-heading">Core control layers that keep arrears visibility accurate and follow-up disciplined.</h2>
+        <p class="section-lead">
+          Lionyx-E is centered on arrears visibility, but reliable arrears control depends on connected records around the tenant, lease, payments, communication and reporting. These layers support clean records, clear obligations, correct payment visibility, true aging, disciplined follow-up and stronger reporting confidence.
+        </p>
+        <a class="walkthrough-link" href="how-it-works.html">Follow the walkthrough to see how tenant records, payment visibility, arrears follow-up and reporting connect in practice.</a>
+
+        <div class="modules-grid" style="margin-top:34px;">
+          <article class="module-card">
+            <p class="module-label">Record Integrity</p>
+            <h3>Tenant Onboarding</h3>
+            <p>Starts the account record cleanly so arrears can be tied to the right tenant, documents and account history from the beginning.</p>
+          </article>
+
+          <article class="module-card">
+            <p class="module-label">Record Integrity</p>
+            <h3>Lease Management</h3>
+            <p>Keeps rent obligations, billing dates and tenancy terms clear enough to judge when an account is genuinely overdue.</p>
+          </article>
+
+          <article class="module-card">
+            <p class="module-label">Payment Visibility</p>
+            <h3>Rent Collection Tracker</h3>
+            <p>Captures expected versus received payments so shortfalls, partial payments and collection gaps are visible before aging is assessed.</p>
+          </article>
+
+          <article class="module-card">
+            <p class="module-label">Arrears Control</p>
+            <h3>Arrears Tracking</h3>
+            <p>Rebuilds the true overdue structure, shows which debt is actually oldest, and sets the right follow-up priority across the portfolio.</p>
+          </article>
+
+          <article class="module-card">
+            <p class="module-label">Supporting Context</p>
+            <h3>Maintenance Tracking</h3>
+            <p>Adds useful operational context where unresolved issues may affect follow-up timing or tenant communication, without displacing arrears as the main control signal.</p>
+          </article>
+
+          <article class="module-card">
+            <p class="module-label">Reporting Confidence</p>
+            <h3>Reporting Layer</h3>
+            <p>Turns corrected aging into a clearer management view of exposure, priority accounts and arrears risk across the portfolio.</p>
+          </article>
+
+          <article class="module-card">
+            <p class="module-label">Follow-Up Continuity</p>
+            <h3>Communication Tracker</h3>
+            <p>Keeps calls, notices and collection follow-up attached to the account record so arrears action stays consistent over time.</p>
+          </article>
+
+          <article class="module-card">
+            <p class="module-label">Governance Support</p>
+            <h3>Inspection System</h3>
+            <p>Supports broader governance by tying inspections back to the same controlled record where operational oversight needs to sit around the arrears environment.</p>
+          </article>
+
+          <article class="module-card">
+            <p class="module-label">Governance Support</p>
+            <h3>Compliance System</h3>
+            <p>Adds obligation and evidence tracking around the control environment without changing the system's arrears-focused center of gravity.</p>
+          </article>
+
+          <article class="module-card">
+            <p class="module-label">Governance Support</p>
+            <h3>Task Manager</h3>
+            <p>Helps teams assign and close follow-up work around collections, exceptions and governance in a more controlled way.</p>
+          </article>
+
+          <article class="module-card">
+            <p class="module-label">Governance Support</p>
+            <h3>Success Tracking</h3>
+            <p>Provides a higher-level view of control performance once arrears visibility, follow-up discipline and reporting confidence are already established.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="proof">
+      <div class="container">
+        <p class="section-kicker">Example Scenario</p>
+        <h2 class="section-heading">From distorted arrears to decision-ready visibility.</h2>
+        <p class="section-lead">
+          This simplified example reflects the kind of arrears picture property managers see in live portfolios. It shows how partial payments can make aging look cleaner than it really is, and what changes once the account view is corrected.
+        </p>
+
+        <div class="problem-grid" style="margin-top:34px;">
+          <article class="feature-card">
+            <h3>Before (Typical System)</h3>
+            <ul class="tier-list">
+              <li>Partial payments are absorbed into newer charges first</li>
+              <li>Aging buckets look cleaner than the account really is</li>
+              <li>Older unpaid rent stays hidden underneath the current balance</li>
+              <li>Follow-up effort shifts toward the wrong tenants</li>
+            </ul>
+          </article>
+
+          <article class="feature-card">
+            <h3>After (Lionyx-E Arrears Control)</h3>
+            <ul class="tier-list">
+              <li>Payments are matched in the order that reflects the real account history</li>
+              <li>Aging shows how long the debt has actually been outstanding</li>
+              <li>Older unpaid rent becomes visible before it compounds further</li>
+              <li>Follow-up prioritizes the tenants carrying the real risk</li>
+            </ul>
+          </article>
         </div>
 
-        <div class="card">
-          <h3>Admin-Heavy SMEs</h3>
-          <p>
-            Businesses that rely heavily on Excel and need reliable operational automation.
+        <div class="panel" style="margin-top:24px;">
+          <p class="panel-text" style="margin:0; color:var(--white); font-size:1rem;">
+            Corrected arrears visibility leads to earlier intervention, better decisions and lower portfolio risk.
           </p>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section id="projects" class="section">
-    <div class="container">
-      <h2 class="section-title">Automation Systems</h2>
+    <section id="tiers">
+      <div class="container">
+        <p class="section-kicker">Subscription Pricing</p>
+        <h2 class="section-heading">Pricing based on portfolio size, arrears exposure, and control depth.</h2>
+        <p class="section-lead">
+          Lionyx-E pricing is set primarily by the number of units under management and the level of arrears-control oversight required. As portfolios grow, there are more tenant accounts to monitor, more arrears exposure to contain, more follow-up complexity across the book, and greater reporting risk when aging is distorted.
+        </p>
+        <p class="section-lead" style="margin-top:12px;">
+          Pricing increases with unit count because arrears control becomes materially harder as monitoring load, follow-up pressure, and reporting risk rise across the portfolio.
+        </p>
 
-      <div class="grid">
-        <div class="card">
-          <h3>Tenant Arrears Automation Engine</h3>
+        <div class="tiers-grid" style="margin-top:34px;">
+          <article class="tier-card">
+            <p class="module-label">Tier 1</p>
+            <h3 class="tier-name">Small Portfolio</h3>
+            <p class="tier-for">$500/month - 30-50 units</p>
+            <ul class="tier-list">
+              <li>Accurate arrears aging visibility for a smaller book</li>
+              <li>Clearer follow-up prioritization before small errors compound</li>
+              <li>Reduced hidden risk from partial payment distortion</li>
+              <li>Stronger day-to-day confidence in collection follow-up</li>
+            </ul>
+            <div class="tier-capability">
+              <strong>Portfolio Fit</strong>
+              <p>Suitable for smaller property managers who need reliable arrears visibility and disciplined follow-up before misallocation errors compound.</p>
+            </div>
+          </article>
 
-          <p>
-            Automated arrears analysis system for property portfolios. Applies FIFO payment allocation
-            logic and generates operational follow-up outputs.
-          </p>
+          <article class="tier-card">
+            <p class="module-label">Tier 2</p>
+            <h3 class="tier-name">Mid Portfolio</h3>
+            <p class="tier-for">$1,500/month - Around 200 units</p>
+            <ul class="tier-list">
+              <li>Accurate arrears aging visibility across a broader tenant base</li>
+              <li>Clearer follow-up prioritization where collection queues are more complex</li>
+              <li>Reduced hidden risk from partial payment distortion across more accounts</li>
+              <li>Stronger management reporting confidence as arrears pressure grows</li>
+            </ul>
+            <div class="tier-capability">
+              <strong>Portfolio Fit</strong>
+              <p>Suitable for growing property managers where distorted aging creates broader follow-up, reporting, and control risk.</p>
+            </div>
+          </article>
 
-          <img class="project-image" src="assets/arrears-dashboard.png" alt="Tenant arrears dashboard screenshot">
-
-          <div class="diagram">Excel Ledger
-↓
-Python Arrears Engine
-↓
-FIFO Allocation Logic
-↓
-Arrears Snapshot + Reminders
-↓
-Operational Dashboard</div>
-
-          <a class="project-link" href="projects/arrears-engine.html">View Full System Details</a>
+          <article class="tier-card">
+            <p class="module-label">Tier 3</p>
+            <h3 class="tier-name">Larger Portfolios</h3>
+            <p class="tier-for">Custom pricing - Above mid-size portfolios and multi-manager operations</p>
+            <ul class="tier-list">
+              <li>Accurate arrears aging visibility across more complex books</li>
+              <li>Greater control over follow-up prioritization across larger teams and portfolios</li>
+              <li>Lower hidden risk from partial payment distortion at scale</li>
+              <li>Stronger management reporting confidence for higher-exposure portfolios</li>
+              <li>Greater control as portfolio complexity increases</li>
+            </ul>
+            <div class="tier-capability">
+              <strong>Portfolio Fit</strong>
+              <p>Scaled upward based on number of units, reporting needs, and operational complexity for larger books and multi-manager operations.</p>
+            </div>
+          </article>
         </div>
+      </div>
+    </section>
 
-        <div class="card">
-          <h3>Maintenance Request Tracking System</h3>
+    <section>
+      <div class="container">
+        <div class="vision-card">
+          <div class="vision-grid">
+            <div>
+              <p class="section-kicker">Next Step</p>
+              <h2 class="section-heading">See the arrears logic in action.</h2>
+              <p class="section-lead" style="max-width:640px;">
+                The walkthrough shows how a tenant ledger is reconstructed, how aging is restored, and how that corrected position changes follow-up and reporting.
+              </p>
+              <div class="hero-actions" style="margin-top:28px;">
+                <a class="button button-primary" href="how-it-works.html">View Operational Walkthrough</a>
+                <a class="button button-secondary" href="#tiers">View Pricing</a>
+              </div>
+            </div>
 
-          <p>
-            Operational workflow automation converting maintenance request intake into structured tracking
-            data and automated weekly summaries.
-          </p>
+            <div class="progression" aria-label="Walkthrough bridge">
+              <div class="progression-item">
+                <div class="step-index">01</div>
+                <div>
+                  <strong>Ledger to allocation</strong>
+                  <span>See how charges and receipts are brought into one reconstruction flow.</span>
+                </div>
+              </div>
 
-          <img class="project-image" src="assets/maintenance-dashboard.png" alt="Maintenance dashboard screenshot">
+              <div class="progression-item">
+                <div class="step-index">02</div>
+                <div>
+                  <strong>Allocation to aging</strong>
+                  <span>See how corrected payment allocation restores the true age structure of debt.</span>
+                </div>
+              </div>
 
-          <div class="diagram">Request Intake (Excel)
-↓
-Python Processing Engine
-↓
-Maintenance Tracking Dataset
-↓
-Weekly Summary Output
-↓
-Operations Dashboard</div>
-
-          <a class="project-link" href="projects/maintenance-tracker.html">View Full System Details</a>
+              <div class="progression-item">
+                <div class="step-index">03</div>
+                <div>
+                  <strong>Aging to action</strong>
+                  <span>See how corrected arrears visibility drives follow-up and reporting decisions.</span>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section id="architecture" class="section">
-    <div class="container">
-      <h2 class="section-title">System Architecture</h2>
-
-      <div class="card">
-        <div class="diagram">Operational Data (Excel)
-↓
-Validation Layer
-↓
-Python Processing Engine
-↓
-Automated Outputs
-↓
-Operational Dashboards</div>
-
-        <p style="margin-top:20px;">
-          Lionyx-E systems preserve familiar spreadsheet interfaces while shifting processing logic
-          into structured automation pipelines.
+    <section id="fit">
+      <div class="container">
+        <p class="section-kicker">Built For</p>
+        <h2 class="section-heading">Built for property managers who need reliable arrears visibility.</h2>
+        <p class="section-lead">
+          Lionyx-E fits teams that already collect rent but cannot trust what their arrears aging is telling them. It is designed for operators who need clearer follow-up priorities, cleaner risk visibility and reporting they can defend.
         </p>
+
+        <div class="audience-grid" style="margin-top:34px;">
+          <article class="audience-card">
+            <h3>Owner-managers and small portfolios</h3>
+            <p>For operators who need corrected arrears aging without rebuilding their entire operating stack first.</p>
+          </article>
+
+          <article class="audience-card">
+            <h3>Collections and admin teams</h3>
+            <p>For teams that need reliable follow-up order, clearer tenant prioritisation and less manual arrears rework.</p>
+          </article>
+
+          <article class="audience-card">
+            <h3>Portfolio and finance leaders</h3>
+            <p>For managers who need arrears reporting that reflects real exposure instead of a balance view that hides aging risk.</p>
+          </article>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section id="contact" class="section">
-    <div class="container">
-      <h2 class="section-title">Contact</h2>
-
-      <div class="card contact-card">
-        <p>
-          Need to automate a manual workflow? Tell Lionyx-E what process is repetitive,
-          spreadsheet-heavy or difficult to manage.
+    <section id="process">
+      <div class="container">
+        <p class="section-kicker">Operating Use</p>
+        <h2 class="section-heading">A practical arrears control flow for live portfolios.</h2>
+        <p class="section-lead">
+          Lionyx-E is designed so teams can correct arrears visibility first, then use that corrected picture to improve follow-up and reporting without waiting for a broader system overhaul.
         </p>
 
-        <p>
-          General enquiries:<br>
-          <a href="mailto:info@lionyx-e.co.za">info@lionyx-e.co.za</a>
-        </p>
+        <div class="steps-grid" style="margin-top:34px;">
+          <article class="step-card">
+            <div class="step-index">01</div>
+            <h3>Load the right records</h3>
+            <p>Start with the tenant, charge and receipt history needed to reconstruct arrears properly.</p>
+          </article>
 
-        <p>
-          Direct contact:<br>
-          <a href="mailto:nicola@lionyx-e.co.za">nicola@lionyx-e.co.za</a>
-        </p>
+          <article class="step-card">
+            <div class="step-index">02</div>
+            <h3>Rebuild aging and priorities</h3>
+            <p>Correct allocation logic restores the age structure of debt and reshapes who the team should follow up first.</p>
+          </article>
 
-        <p>
-          Support:<br>
-          <a href="mailto:support@lionyx-e.co.za">support@lionyx-e.co.za</a>
-        </p>
+          <article class="step-card">
+            <div class="step-index">03</div>
+            <h3>Act and report with confidence</h3>
+            <p>Use the corrected arrears view for tenant action, management reporting and portfolio risk review.</p>
+          </article>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
+
+    <section class="vision" id="direction">
+      <div class="container">
+        <div class="vision-card">
+          <div class="vision-grid">
+            <div>
+              <p class="section-kicker">Direction</p>
+              <h2 class="section-heading">Built to become the arrears control layer property managers rely on.</h2>
+              <p class="section-lead" style="max-width:640px;">
+                Lionyx-E starts with the problem that distorts collections decisions most: incorrect arrears timing. The product is being developed to strengthen the control loop from ledger reconstruction to follow-up and reporting.
+              </p>
+              <p class="section-lead" style="max-width:640px;">
+                The direction is straightforward: correct allocation, correct aging, and clearer portfolio risk visibility as client portfolios grow.
+              </p>
+            </div>
+
+            <div class="progression" aria-label="Lionyx-E progression">
+              <div class="progression-item">
+                <div class="step-index">01</div>
+                <div>
+                  <strong>Correct the ledger view</strong>
+                  <span>Start by reconstructing how receipts and charges should have aged across each tenant account.</span>
+                </div>
+              </div>
+
+              <div class="progression-item">
+                <div class="step-index">02</div>
+                <div>
+                  <strong>Correct the follow-up order</strong>
+                  <span>Use restored aging to focus teams on the tenant accounts that are genuinely oldest and highest risk.</span>
+                </div>
+              </div>
+
+              <div class="progression-item">
+                <div class="step-index">03</div>
+                <div>
+                  <strong>Correct the risk reporting</strong>
+                  <span>Give leadership a clearer view of portfolio exposure as the arrears control layer matures.</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact" id="contact">
+      <div class="container">
+        <div class="contact-card">
+          <div>
+            <p class="section-kicker">Portfolio Evaluation</p>
+            <h2 class="contact-title">See what your arrears position really looks like.</h2>
+            <p>
+              Bring a snapshot of your portfolio, or describe how arrears are currently being tracked. We assess whether aging is being distorted, then show what corrected aging would reveal about overdue structure, hidden risk and follow-up priority.
+            </p>
+            <div class="tier-capability" style="margin-top:22px;">
+              <strong>What You Will Get</strong>
+              <ul class="tier-list" style="margin-top:12px;">
+                <li>Clear view of true arrears aging</li>
+                <li>Identification of hidden high-risk tenants</li>
+                <li>Better follow-up prioritization</li>
+              </ul>
+            </div>
+            <div class="hero-actions" style="margin-top:28px;">
+              <a class="button button-primary" href="mailto:info@lionyx-e.co.za?subject=Lionyx-E%20Arrears%20Review">Request Arrears Review</a>
+              <a class="button button-secondary" href="how-it-works.html">View Operational Walkthrough</a>
+              <a class="button button-secondary" href="#tiers">View Pricing</a>
+            </div>
+            <p class="contact-note">
+              No data migration or complex prep is required. A simple portfolio snapshot or short description of your current arrears process is enough for an initial review.
+            </p>
+          </div>
+
+          <div class="contact-list">
+            <div class="contact-item">
+              <strong>General Enquiries</strong>
+              <a href="mailto:info@lionyx-e.co.za">info@lionyx-e.co.za</a>
+            </div>
+
+            <div class="contact-item">
+              <strong>Direct Contact</strong>
+              <a href="mailto:nicola@lionyx-e.co.za">nicola@lionyx-e.co.za</a>
+            </div>
+
+            <div class="contact-item">
+              <strong>Support</strong>
+              <a href="mailto:support@lionyx-e.co.za">support@lionyx-e.co.za</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
 
   <footer>
-    LIONYX-E AUTOMATION SYSTEMS<br>
-    Registered South African Business<br><br>
-    info@lionyx-e.co.za<br>
-    lionyx-e.co.za
-  </footer>
+    <div class="container">
+      <div>
+        <p class="footer-mark">Lionyx-E Automation Systems (Pty) Ltd</p>
+        <p>Arrears control system for property managers focused on corrected aging, payment allocation logic and clearer portfolio risk visibility.</p>
+      </div>
 
+      <div>
+        <p>South Africa</p>
+        <p><a href="mailto:info@lionyx-e.co.za" style="text-decoration:none;">info@lionyx-e.co.za</a></p>
+        <p><a href="https://lionyx-e.co.za" style="text-decoration:none;">lionyx-e.co.za</a></p>
+      </div>
+    </div>
+  </footer>
 </body>
 </html>
